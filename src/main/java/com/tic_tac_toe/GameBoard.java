@@ -23,6 +23,8 @@ public class GameBoard {
             for (int j = 0; j < 3; j++) {
                 System.out.print(board[i][j] + " ");
             }
+            System.out.println();
+            System.out.println();
         }
     }
 }
