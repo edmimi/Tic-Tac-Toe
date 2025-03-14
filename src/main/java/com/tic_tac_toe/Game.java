@@ -21,24 +21,28 @@ public class Game {
 
         while (!board.isBoardFull() && !gameWon) {
             board.showBoard();
-            System.out.println("Player " + currentPlayer.getName() + " (" + currentPlayer.getSymbol() + "), enter your move (row and column): ");
+            System.out.println(currentPlayer.getName() + " (" + currentPlayer.getSymbol() + "), enter your move (row and column): ");
+            System.out.println();
             int row = scanner.nextInt();
             int col = scanner.nextInt();
+
 
             if (board.makeMove(row, col, currentPlayer.getSymbol())) {
                 gameWon = board.checkWinner(currentPlayer.getSymbol());
                 if (gameWon) {
-                    System.out.println("Player " + currentPlayer.getName() + " wins!");
+                    System.out.println(currentPlayer.getName() + " wins!");
                 } else {
                     currentPlayer = (currentPlayer == player1) ? player2 : player1;
                 }
             } else {
                 System.out.println("This move is not valid");
             }
+            System.out.println();
         }
 
         if (!gameWon) {
             System.out.println("The game is a tie!");
+            
         }
 
         board.showBoard();
